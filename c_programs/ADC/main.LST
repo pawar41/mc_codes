@@ -1,0 +1,81 @@
+C51 COMPILER V8.12   MAIN                                                                  06/17/2016 18:36:33 PAGE 1   
+
+
+C51 COMPILER V8.12, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*
+   2                  Interfacing ADC card with Micro51S Board
+   3                  Connect CN4 on ADC card to CN3 on Micro51S Board
+   4                  Connect CN3 on ADC card to CN4 on Micro51S Board
+   5                  Connect LED card to CN2
+   6                  ADC0808                 8051
+   7                  SEL_A                   P1.0
+   8                  SEL_B                   P1.1
+   9                  SEL_C                   P1.2
+  10                  ALE                             P1.3
+  11                  START                   P1.4
+  12                  EOC                             P1.5
+  13                  OE                              P1.6
+  14                  CLK                             P1.7
+  15                  ADC_DATA                PORT2
+  16          */
+  17          
+  18          #include <reg51.h>
+  19          #define ADCPORT         P2
+  20          #define LEDPORT         P0
+  21          
+  22          sbit SEL_A      = P1^0;
+  23          sbit SEL_B      = P1^1;
+  24          sbit SEL_C      = P1^2;
+  25          sbit ALE        = P1^3;
+  26          sbit START      = P1^4;
+  27          sbit EOC        = P1^5;
+  28          sbit OE         = P1^6;
+  29          
+  30          unsigned char ADC_read(unsigned char channel)
+  31          {
+  32   1              unsigned char result;
+  33   1              SEL_A = SEL_B = SEL_C = 0;
+  34   1              P1 = P1 | (channel & 0x07);
+  35   1              ALE = 1;
+  36   1              START = 1;
+  37   1              ALE = 0;
+  38   1              START = 0;
+  39   1              while (EOC == 1);
+  40   1              while (EOC == 0);
+  41   1              OE = 1;
+  42   1              result = ADCPORT;
+  43   1              OE = 0;
+  44   1              return result;
+  45   1      }
+  46          
+  47          int main()
+  48          {
+  49   1              ADCPORT = 0xFF;
+  50   1              EOC = 1;
+  51   1              ALE = OE = START = 0;
+  52   1              while(1)
+  53   1              {
+  54   2                      LEDPORT = ADC_read(0);  
+  55   2              }
+C51 COMPILER V8.12   MAIN                                                                  06/17/2016 18:36:33 PAGE 2   
+
+  56   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     52    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

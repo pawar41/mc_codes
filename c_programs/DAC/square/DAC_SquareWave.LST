@@ -1,0 +1,55 @@
+C51 COMPILER V8.12   DAC_SQUAREWAVE                                                        06/16/2016 18:23:14 PAGE 1   
+
+
+C51 COMPILER V8.12, COMPILATION OF MODULE DAC_SQUAREWAVE
+OBJECT MODULE PLACED IN DAC_SquareWave.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE DAC_SquareWave.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1            #include<REG51.h>
+   2          
+   3          void delay_time(unsigned int time)
+   4          {
+   5   1        unsigned int i,j; 
+   6   1        for(i=time;i>0;i--)
+   7   1        {
+   8   2              for(j=0;j<2000;j++);
+   9   2        }
+  10   1       
+  11   1          
+  12   1      }
+  13          
+  14          void send_dac(unsigned int dat)
+  15          {
+  16   1              P1 = dat;
+  17   1      }
+  18          
+  19          
+  20          void main(void)
+  21          {
+  22   1       unsigned int delay=0xFF;
+  23   1       unsigned char state=0xFF;
+  24   1       send_dac(0x7F);
+  25   1       while(1)
+  26   1       {
+  27   2              send_dac(state);
+  28   2              delay_time(delay);
+  29   2          send_dac(~state);
+  30   2              delay_time(delay); 
+  31   2       }
+  32   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     72    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

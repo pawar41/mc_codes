@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"dac_triangular.obj" 
+TO "dac_trangular" 
+RAMSIZE(256) 

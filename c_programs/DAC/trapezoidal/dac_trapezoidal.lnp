@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"dac_trapezoidal.obj" 
+TO "dac_trapezoidal" 
+RAMSIZE(256) 

@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"DAC_SquareWave.obj" 
+TO "DAC_SquareWave" 
+RAMSIZE(256) 

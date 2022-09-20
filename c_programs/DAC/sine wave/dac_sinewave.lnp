@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"dac_sinewave.obj" 
+TO "dac_sinewave" 
+RAMSIZE(256) 

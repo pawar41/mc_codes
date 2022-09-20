@@ -1,0 +1,21 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\Micro-51F\Micro-51F_Programs\C\DAC\triangular\dac_trangular.uvproj
+Project File Date:  02/25/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling dac_triangular.c...
+DAC_TRIANGULAR.C(16): error C202: 'temp': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling dac_triangular.c...
+linking...
+Program Size: data=11.0 xdata=0 code=105
+creating hex file from "dac_trangular"...
+"dac_trangular" - 0 Error(s), 0 Warning(s).

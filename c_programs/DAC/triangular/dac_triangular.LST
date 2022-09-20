@@ -1,0 +1,61 @@
+C51 COMPILER V8.12   DAC_TRIANGULAR                                                        03/02/2016 14:10:56 PAGE 1   
+
+
+C51 COMPILER V8.12, COMPILATION OF MODULE DAC_TRIANGULAR
+OBJECT MODULE PLACED IN dac_triangular.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE dac_triangular.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REG51.h>
+   2          
+   3          void delay_ramp(unsigned int time)
+   4          {
+   5   1        unsigned int i,j; 
+   6   1        for(i=time;i>0;i--)
+   7   1        {
+   8   2              for(j=0;j<10;j++);
+   9   2        }
+  10   1          
+  11   1      }
+  12          
+  13          
+  14          void send_dac(unsigned int dat)
+  15          {
+  16   1              P1 = dat;
+  17   1      }
+  18          
+  19          void main(void)
+  20          {
+  21   1        unsigned int a,state=0xff;
+  22   1      
+  23   1         while(1)
+  24   1         {
+  25   2              // rising ramp edge
+  26   2               for(a=0x0;a<0xFF;a++)
+  27   2               {
+  28   3                      send_dac(a);
+  29   3                      delay_ramp(1);
+  30   3               }
+  31   2              // falling ramp edge
+  32   2               for(a=0xFF;a>0;a--)
+  33   2               {
+  34   3                      send_dac(a);
+  35   3                      delay_ramp(1);
+  36   3               }
+  37   2              }
+  38   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     90    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,187 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/28/2010  20:44:36  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, dac_trapezoidal.obj TO dac_trapezoidal RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  dac_trapezoidal.obj (DAC_TRAPEZOIDAL)
+
+
+LINK MAP OF MODULE:  dac_trapezoidal (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     003DH     UNIT         ?PR?MAIN?DAC_TRAPEZOIDAL
+            CODE    0040H     0026H     UNIT         ?PR?_DELAY_TIME?DAC_TRAPEZOIDAL
+            CODE    0066H     001AH     UNIT         ?PR?_SEND_DAC?DAC_TRAPEZOIDAL
+            CODE    0080H     000EH     UNIT         ?PR?_DELAY_RAMP?DAC_TRAPEZOIDAL
+            CODE    008EH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   dac_trapezoidal (?C_STARTUP)
+
+
+SEGMENT                                   DATA_GROUP 
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?C_C51STARTUP                           -----    -----
+  +--> ?PR?MAIN?DAC_TRAPEZOIDAL
+
+?PR?MAIN?DAC_TRAPEZOIDAL                0008H    0002H
+  +--> ?PR?_SEND_DAC?DAC_TRAPEZOIDAL
+  +--> ?PR?_DELAY_TIME?DAC_TRAPEZOIDAL
+
+?PR?_DELAY_TIME?DAC_TRAPEZOIDAL         -----    -----
+  +--> ?PR?_SEND_DAC?DAC_TRAPEZOIDAL
+
+
+
+SYMBOL TABLE OF MODULE:  dac_trapezoidal (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:008EH         SEGMENT       ?C_C51STARTUP
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/28/2010  20:44:36  PAGE 2
+
+
+  I:000AH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0091H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:008EH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:008EH         LINE#         133
+  C:0090H         LINE#         134
+  C:0091H         LINE#         135
+  C:0092H         LINE#         136
+  C:0094H         LINE#         185
+  C:0097H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        DAC_TRAPEZOIDAL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0047H         PUBLIC        _delay_time
+  C:0080H         PUBLIC        _delay_ramp
+  C:0003H         PUBLIC        main
+  C:0066H         PUBLIC        _send_dac
+  -------         PROC          L?0029
+  -------         ENDPROC       L?0029
+  -------         PROC          _DELAY_TIME
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0047H         LINE#         2
+  C:0047H         LINE#         3
+  C:0047H         LINE#         5
+  C:0050H         LINE#         6
+  C:0050H         LINE#         7
+  C:005EH         LINE#         8
+  C:0065H         LINE#         10
+  -------         ENDPROC       _DELAY_TIME
+  -------         PROC          _DELAY_RAMP
+  D:0006H         SYMBOL        time
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/28/2010  20:44:36  PAGE 3
+
+
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0080H         LINE#         12
+  C:0080H         LINE#         13
+  C:0080H         LINE#         15
+  C:008DH         LINE#         17
+  -------         ENDPROC       _DELAY_RAMP
+  -------         PROC          _SEND_DAC
+  D:0006H         SYMBOL        dat
+  -------         DO            
+  D:0005H         SYMBOL        temp
+  D:0004H         SYMBOL        cnt
+  D:0001H         SYMBOL        a
+  -------         ENDDO         
+  C:0066H         LINE#         20
+  C:0066H         LINE#         21
+  C:0066H         LINE#         22
+  C:006AH         LINE#         23
+  C:006AH         LINE#         24
+  C:006AH         LINE#         25
+  C:006EH         LINE#         26
+  C:0072H         LINE#         27
+  C:0074H         LINE#         28
+  C:007BH         LINE#         29
+  C:007DH         LINE#         30
+  C:007DH         LINE#         31
+  C:007FH         LINE#         32
+  -------         ENDPROC       _SEND_DAC
+  -------         PROC          MAIN
+  -------         DO            
+  D:0002H         SYMBOL        a
+  D:0008H         SYMBOL        state
+  -------         ENDDO         
+  C:0003H         LINE#         33
+  C:0003H         LINE#         34
+  C:0003H         LINE#         35
+  C:0009H         LINE#         37
+  C:0009H         LINE#         38
+  C:0009H         LINE#         40
+  C:000CH         LINE#         41
+  C:000CH         LINE#         42
+  C:0013H         LINE#         44
+  C:001DH         LINE#         46
+  C:0021H         LINE#         47
+  C:0024H         LINE#         49
+  C:0028H         LINE#         50
+  C:0028H         LINE#         51
+  C:002FH         LINE#         53
+  C:0038H         LINE#         55
+  C:003BH         LINE#         56
+  C:003EH         LINE#         57
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DAC_TRAPEZOIDAL
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_RAMP?DAC_TRAPEZOIDAL
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/28/2010  20:44:36  PAGE 4
+
+
+
+Program Size: data=11.0 xdata=0 code=154
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
