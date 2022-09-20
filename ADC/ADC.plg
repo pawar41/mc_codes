@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\Micro-51S V2\Programs\ASM codes\ADC\ADC.uvproj
+Project File Date:  07/04/2017
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling adc.asm...
+adc.asm(19): error A46: CODE-ADDRESS EXPECTED
+adc.asm(48): error A8: ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+adc.asm(50): error A48: DATA-ADDRESS EXPECTED
+Target not created
+Build target 'Target 1'
+assembling adc.asm...
+adc.asm(31): error A46: CODE-ADDRESS EXPECTED
+adc.asm(49): error A8: ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+adc.asm(51): error A48: DATA-ADDRESS EXPECTED
+Target not created
+Build target 'Target 1'
+assembling adc.asm...
+adc.asm(31): error A46: CODE-ADDRESS EXPECTED
+adc.asm(35): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(36): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(37): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(38): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(40): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(41): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(42): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(43): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(44): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(47): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(51): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(52): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(53): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(54): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(56): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(57): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(58): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(59): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(60): error A45: UNDEFINED SYMBOL (PASS-2)
+adc.asm(63): error A8: ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+adc.asm(65): error A48: DATA-ADDRESS EXPECTED
+Target not created
+Build target 'Target 1'
+assembling adc.asm...
+adc.asm(31): error A46: CODE-ADDRESS EXPECTED
+adc.asm(49): error A8: ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+adc.asm(51): error A48: DATA-ADDRESS EXPECTED
+Target not created
+Build target 'Target 1'
+assembling adc.asm...
+adc.asm(51): error A48: DATA-ADDRESS EXPECTED
+Target not created
+Build target 'Target 1'
+assembling adc.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=40
+"ADC" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=8.0 xdata=0 code=40
+creating hex file from "ADC"...
+"ADC" - 0 Error(s), 0 Warning(s).

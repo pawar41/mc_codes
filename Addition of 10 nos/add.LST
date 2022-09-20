@@ -1,0 +1,37 @@
+A51 MACRO ASSEMBLER  ADD                                                                  07/24/2017 09:26:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN add.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE add.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 00h
+0000 8000              2                     sjmp start
+                       3     
+0002 7400              4     start:  mov a, #00h                     ;to store result of addition
+0004 7800              5                     mov R0, #00h            ;for counting purpose
+0006 28                6     loop:   add a, R0
+0007 08                7                     inc R0
+0008 B80BFB            8                     cjne R0, #0Bh, loop      ;loop only from 0 to 10
+000B F8                9                     mov R0, a                        ;store addition result in R0
+000C 80FE             10     here:   sjmp here
+                      11                     END
+A51 MACRO ASSEMBLER  ADD                                                                  07/24/2017 09:26:45 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+HERE . . . . . . .  C ADDR   000CH   A   
+LOOP . . . . . . .  C ADDR   0006H   A   
+START. . . . . . .  C ADDR   0002H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

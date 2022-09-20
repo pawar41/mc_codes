@@ -1,0 +1,77 @@
+BL51 BANKED LINKER/LOCATER V6.11                                                        07/04/2017  14:12:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.11, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE adc.obj TO ADC RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  adc.obj (ADC)
+
+
+LINK MAP OF MODULE:  ADC (ADC)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0028H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  ADC (ADC)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ADC
+  D:00A0H         SYMBOL        ADCPORT
+  B:0090H.3       SYMBOL        ALE
+  B:0090H.5       SYMBOL        EOC
+  D:0080H         SYMBOL        LEDPORT
+  C:000FH         SYMBOL        LOOP1
+  C:0012H         SYMBOL        LOOP2
+  C:0022H         SYMBOL        LOOP3
+  C:001CH         SYMBOL        MAIN
+  B:0090H.6       SYMBOL        OE
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  C:0003H         SYMBOL        READ_ADC
+  B:0090H.0       SYMBOL        SEL_A
+  B:0090H.1       SYMBOL        SEL_B
+  B:0090H.2       SYMBOL        SEL_C
+  B:0090H.4       SYMBOL        START
+  C:0000H         LINE#         31
+  C:0003H         LINE#         34
+  C:0005H         LINE#         35
+  C:0007H         LINE#         36
+  C:0009H         LINE#         37
+  C:000BH         LINE#         38
+  C:000DH         LINE#         39
+  C:000FH         LINE#         41
+  C:0012H         LINE#         43
+  C:0015H         LINE#         44
+  C:0017H         LINE#         45
+  C:0019H         LINE#         46
+  C:001BH         LINE#         47
+BL51 BANKED LINKER/LOCATER V6.11                                                      07/04/2017  14:12:00  PAGE 2
+
+
+  C:001CH         LINE#         50
+  C:001FH         LINE#         51
+  C:0022H         LINE#         53
+  C:0024H         LINE#         54
+  C:0026H         LINE#         55
+  -------         ENDMOD        ADC
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0028H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=40
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

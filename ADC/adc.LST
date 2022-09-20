@@ -1,0 +1,97 @@
+A51 MACRO ASSEMBLER  ADC                                                                  07/04/2017 14:11:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN adc.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE adc.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     
+                       9     
+                      10     
+                      11     
+                      12     
+                      13     
+                      14     
+                      15     
+                      16     
+                      17                              
+                      18     
+  00A0                19             ADCPORT equ P2
+  0080                20             LEDPORT equ P0
+                      21     
+  0090                22             SEL_A   equ P1^0
+  0091                23             SEL_B   equ P1^1
+  0092                24             SEL_C   equ P1^2
+  0093                25             ALE             equ P1^3
+  0094                26             START   equ P1^4
+  0095                27             EOC             equ P1^5
+  0096                28             OE              equ P1^6
+                      29     
+0000                  30             org 0x00
+0000 02001C           31             ljmp main               ;jump to start on reset
+                      32     
+0003                  33     read_adc:
+0003 8890             34             mov  P1, R0     
+0005 D295             35             setb EOC
+0007 D293             36             setb ALE
+0009 D294             37             setb START
+000B C293             38             clr  ALE
+000D C294             39             clr  START
+000F                  40     loop1:
+000F 2095FD           41             jb   EOC, loop1
+0012                  42     loop2:
+0012 3095FD           43             jnb  EOC, loop2
+0015 D296             44             setb OE
+0017 E5A0             45             mov a, ADCPORT
+0019 C296             46             clr  OE
+001B 22               47             ret
+                      48     
+001C                  49     main:
+001C 75A0FF           50             mov ADCPORT, #0FFh
+001F 759000           51             mov P1, #00h    
+0022                  52     loop3:
+0022 1103             53             acall read_adc
+0024 F580             54             mov LEDPORT, a
+0026 80FA             55             sjmp loop3
+                      56     
+                      57             END
+A51 MACRO ASSEMBLER  ADC                                                                  07/04/2017 14:11:55 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADCPORT. . . . . .  D ADDR   00A0H   A   
+ALE. . . . . . . .  B ADDR   0090H.3 A   
+EOC. . . . . . . .  B ADDR   0090H.5 A   
+LEDPORT. . . . . .  D ADDR   0080H   A   
+LOOP1. . . . . . .  C ADDR   000FH   A   
+LOOP2. . . . . . .  C ADDR   0012H   A   
+LOOP3. . . . . . .  C ADDR   0022H   A   
+MAIN . . . . . . .  C ADDR   001CH   A   
+OE . . . . . . . .  B ADDR   0090H.6 A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+READ_ADC . . . . .  C ADDR   0003H   A   
+SEL_A. . . . . . .  B ADDR   0090H.0 A   
+SEL_B. . . . . . .  B ADDR   0090H.1 A   
+SEL_C. . . . . . .  B ADDR   0090H.2 A   
+START. . . . . . .  B ADDR   0090H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

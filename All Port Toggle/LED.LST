@@ -1,0 +1,59 @@
+A51 MACRO ASSEMBLER  LED                                                                  08/22/2017 16:03:13 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN LED.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE LED.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000                   2             org 00h
+0000 020010            3             ljmp start              ;jump to start on reset
+                       4     
+                       5     
+0003                   6     delay:                           ;delay routine approx. 1.5 seconds
+0003 7B0B              7         mov r3,#0x0B
+0005 7C00              8             mov r4,#0x0
+0007 7D00              9             mov r5,#0x0
+0009                  10     loop:
+0009 DDFE             11             djnz r5, loop
+000B DCFC             12             djnz r4, loop
+000D DBFA             13             djnz r3, loop
+000F 22               14             RET
+                      15     
+0010                  16     start:
+0010 758000           17             mov P0, #00h
+0013 759000           18             mov P1, #00h
+0016 75A000           19             mov P2, #00h
+0019 75B000           20             mov P3, #00h
+001C 1103             21             acall delay
+001E 7580FF           22             mov P0, #0FFh
+0021 7590FF           23             mov P1, #0FFh
+0024 75A0FF           24             mov P2, #0FFh
+0027 75B0FF           25             mov P3, #0FFh
+002A 1103             26             acall delay
+002C 80E2             27             sjmp start
+                      28     
+                      29      END
+A51 MACRO ASSEMBLER  LED                                                                  08/22/2017 16:03:13 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0003H   A   
+LOOP . . . . . . .  C ADDR   0009H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0010H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

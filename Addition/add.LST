@@ -1,0 +1,39 @@
+A51 MACRO ASSEMBLER  ADD                                                                  07/24/2017 08:48:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN add.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE add.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 00h
+0000 8003              2                     sjmp start
+                       3     
+0002 E9                4     addn:   mov a, R1
+0003 2A                5                     add a, R2
+0004 22                6                     RET
+                       7     
+0005 7903              8     start:  mov R1, #03h
+0007 7A07              9                     mov R2, #07h
+0009 1102             10                     acall addn
+000B F8               11                     mov R0, A
+000C 80FE             12     here:   sjmp here
+                      13                     END
+A51 MACRO ASSEMBLER  ADD                                                                  07/24/2017 08:48:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADDN . . . . . . .  C ADDR   0002H   A   
+HERE . . . . . . .  C ADDR   000CH   A   
+START. . . . . . .  C ADDR   0005H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
